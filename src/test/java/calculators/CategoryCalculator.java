@@ -5,6 +5,81 @@ import java.util.List;
 public class CategoryCalculator {
 
 	/**
+	 * TODO -> this is total calculator; add Javadocs HERE
+	 * @param lines
+	 * @return
+	 */
+	public static double categoryCalculator(List<String[]> lines) {
+		double retSum = 0.0;
+
+		for (String[] each : lines) {
+			retSum += Double.valueOf( each[3] );
+		}
+
+		return Math.round(retSum * 100.0) / 100.0;
+	}
+
+	/**
+	 * TODO -> add description HERE
+	 * @param lines
+	 * @param isDeposit
+	 * @return
+	 */
+	public static double categoryCalculator(List<String[]> lines, boolean isDeposit) {
+		double retSum = 0.0;
+
+		for (String[] each : lines) {
+			double temp = Double.valueOf( each[3] );
+			if (temp > 0) {
+				if (isDeposit) {
+					retSum += temp;
+				}
+			} else {
+				if (!isDeposit) {
+					retSum += temp;
+				}
+			}
+		}
+
+		return Math.round(retSum * 100.0) / 100.0;
+	}
+
+	/**
+	 * TODO -> add description here
+	 * @param lines
+	 * @param isDeposit
+	 * @param isCategorized
+	 * @return
+	 */
+	public static double categoryCalculator(List<String[]> lines, boolean isDeposit, boolean isCategorized) {
+		double retSum = 0.0;
+
+		for (String[] each : lines) {
+			double temp = 0.0;
+
+			if (isCategorized) {
+				temp = (each[4].trim().length() > 1) ? Double.valueOf(each[3]) : 0.0;
+			} else {
+				temp = (each[4].trim().length() < 1) ? Double.valueOf(each[3]) : 0.0;
+			}
+
+			if (temp == 0.0) {
+				continue;
+			} else if (temp > 0) {
+				if (isDeposit) {
+					retSum += temp;
+				}
+			} else {
+				if (!isDeposit) {
+					retSum += temp;
+				}
+			}
+		}
+
+		return Math.round(retSum * 100.0) / 100.0;
+	}
+
+	/**
 	 * Given a List of String[] and the category name,
 	 * returns the total amount within the List for the category as double.
 	 * @param lines given as List of String[] representing each line
@@ -71,11 +146,11 @@ public class CategoryCalculator {
 				if (temp > 0) {
 					if (isDeposit) {
 						if (isLarger) {
-							if (temp > threshold) {
+							if (temp >= threshold) {
 								retSum += temp;
 							}
 						}else {
-							if (temp < threshold) {
+							if (temp <= threshold) {
 								retSum += temp;
 							}
 						}
@@ -83,11 +158,11 @@ public class CategoryCalculator {
 				} else {
 					if (!isDeposit) {
 						if (!isLarger) {
-							if (temp < threshold) {
+							if (temp <= threshold) {
 								retSum += temp;
 							}
 						}else {
-							if (temp > threshold) {
+							if (temp >= threshold) {
 								retSum += temp;
 							}
 						}

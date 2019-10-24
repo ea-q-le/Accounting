@@ -1,4 +1,4 @@
-package csv.readers;
+package csv.reader_writer;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
