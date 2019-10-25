@@ -16,7 +16,7 @@ public class MainTester {
 		// Total income
 		System.out.println("All positive transactions: \t" +
 				categoryCalculator(
-						csvToListOfArrays("src/test/resources/input/2018-all.csv", "--"),
+						csvToListOfArrays("src/test/resources/input/2018-all.csv", ","),
 						true
 				)
 		);
@@ -24,7 +24,7 @@ public class MainTester {
 		// Total expense
 		System.out.println("All negative transactions: \t" +
 				categoryCalculator(
-						csvToListOfArrays("src/test/resources/input/2018-all.csv", "--"),
+						csvToListOfArrays("src/test/resources/input/2018-all.csv", ","),
 						false
 				)
 		);
@@ -33,7 +33,7 @@ public class MainTester {
 
 		System.out.println("TOTAL vehicle expenses: \t" +
 				categoryCalculator(
-						csvToListOfArrays("src/test/resources/input/2018-all.csv", "--"),
+						csvToListOfArrays("src/test/resources/input/2018-all.csv", ","),
 						"vehicle",
 						false
 				)
@@ -41,7 +41,7 @@ public class MainTester {
 		// Purchase prices (vehicle > 2000)
 		System.out.println("Vehicle purchases (vehicle > $2,000): \t" +
 				categoryCalculator(
-						csvToListOfArrays("src/test/resources/input/2018-all.csv", "--"),
+						csvToListOfArrays("src/test/resources/input/2018-all.csv", ","),
 						"vehicle",
 						false,
 						false,
@@ -50,7 +50,7 @@ public class MainTester {
 		);
 		System.out.println("Vehicle purchases as consignments: \t" +
 				categoryCalculator(
-						csvToListOfArrays("src/test/resources/input/2018-all.csv", "--"),
+						csvToListOfArrays("src/test/resources/input/2018-all.csv", ","),
 						"consignment",
 						false
 				)
@@ -59,7 +59,7 @@ public class MainTester {
 		// Recon fees (vehicle < 2000 + inspections) (including labor and parts - labor is to be deducted from 1099 filing as contract labor)
 		System.out.println("Vehicle reconditioning expenses (vehicle < $2,000): \t" +
 				categoryCalculator(
-						csvToListOfArrays("src/test/resources/input/2018-all.csv", "--"),
+						csvToListOfArrays("src/test/resources/input/2018-all.csv", ","),
 						"vehicle",
 						false,
 						true,
@@ -68,7 +68,7 @@ public class MainTester {
 		);
 		System.out.println("Inspections category expenses: \t" +
 				categoryCalculator(
-						csvToListOfArrays("src/test/resources/input/2018-all.csv", "--"),
+						csvToListOfArrays("src/test/resources/input/2018-all.csv", ","),
 						"inspections",
 						false
 				)
@@ -76,7 +76,7 @@ public class MainTester {
 //		//TODO-NOTE:net negative TRANSFERS
 //		System.out.println("Net negative transfers: \t" +
 //				categoryCalculator(
-//						csvToListOfArrays("src/test/resources/input/2018-all.csv", "--"),
+//						csvToListOfArrays("src/test/resources/input/2018-all.csv", ","),
 //						"transfer"
 //				)
 //		);
@@ -86,7 +86,7 @@ public class MainTester {
 		// Rent (office > 500)
 		System.out.println("Office expenses >$500 with RENT && SALARY && INTEREST: \t" +
 				categoryCalculator(
-						csvToListOfArrays("src/test/resources/input/2018-all.csv", "--"),
+						csvToListOfArrays("src/test/resources/input/2018-all.csv", ","),
 						"office",
 						false,
 						false,
@@ -97,7 +97,7 @@ public class MainTester {
 		// Office/supplies (office < 500) / Travel should be a portion of office expenses / Wages should come out of here too
 		System.out.println("Office expenses <$500: \t" +
 				categoryCalculator(
-						csvToListOfArrays("src/test/resources/input/2018-all.csv", "--"),
+						csvToListOfArrays("src/test/resources/input/2018-all.csv", ","),
 						"office",
 						false,
 						true,
@@ -108,7 +108,7 @@ public class MainTester {
 		// Temptags / should go where, office?
 		System.out.println("Temptags expenses: \t" +
 				categoryCalculator(
-						csvToListOfArrays("src/test/resources/input/2018-all.csv", "--"),
+						csvToListOfArrays("src/test/resources/input/2018-all.csv", ","),
 						"temptags",
 						false
 				)
@@ -117,7 +117,7 @@ public class MainTester {
 		// DMV / should go where, office?
 		System.out.println("DMV expenses: \t" +
 				categoryCalculator(
-						csvToListOfArrays("src/test/resources/input/2018-all.csv", "--"),
+						csvToListOfArrays("src/test/resources/input/2018-all.csv", ","),
 						"dmv",
 						false
 				)
@@ -126,7 +126,7 @@ public class MainTester {
 		// Interest (interest is a category) TODO-> Define logic HERE (it will be part of recon for payments to FLOORING)
 		System.out.println("Interest expenses: \t" +
 				categoryCalculator(
-						csvToListOfArrays("src/test/resources/input/2018-all.csv", "--"),
+						csvToListOfArrays("src/test/resources/input/2018-all.csv", ","),
 						"interest",
 						false
 				)
@@ -135,7 +135,7 @@ public class MainTester {
 		// Marketing
 		System.out.println("Marketing expenses: \t" +
 				categoryCalculator(
-						csvToListOfArrays("src/test/resources/input/2018-all.csv", "--"),
+						csvToListOfArrays("src/test/resources/input/2018-all.csv", ","),
 						"marketing",
 						false
 				)
@@ -144,7 +144,7 @@ public class MainTester {
 		// Insurance
 		System.out.println("Insurance expenses: \t" +
 				categoryCalculator(
-						csvToListOfArrays("src/test/resources/input/2018-all.csv", "--"),
+						csvToListOfArrays("src/test/resources/input/2018-all.csv", ","),
 						"insurance",
 						false
 				)
@@ -153,7 +153,7 @@ public class MainTester {
 		// Taxes & Licenses
 		System.out.println("Tax (and licenses): \t" +
 				categoryCalculator(
-						csvToListOfArrays("src/test/resources/input/2018-all.csv", "--"),
+						csvToListOfArrays("src/test/resources/input/2018-all.csv", ","),
 						"tax",
 						false
 				)
@@ -162,7 +162,7 @@ public class MainTester {
 		// Utilities
 		System.out.println("Utilities: \t" +
 				categoryCalculator(
-						csvToListOfArrays("src/test/resources/input/2018-all.csv", "--"),
+						csvToListOfArrays("src/test/resources/input/2018-all.csv", ","),
 						"utilities",
 						false
 				)
@@ -171,7 +171,7 @@ public class MainTester {
 		// Food
 		System.out.println("Food expenses: \t" +
 				categoryCalculator(
-						csvToListOfArrays("src/test/resources/input/2018-all.csv", "--"),
+						csvToListOfArrays("src/test/resources/input/2018-all.csv", ","),
 						"food",
 						false
 				)
@@ -180,7 +180,7 @@ public class MainTester {
 		// Gas
 		System.out.println("Gas expenses: \t" +
 				categoryCalculator(
-						csvToListOfArrays("src/test/resources/input/2018-all.csv", "--"),
+						csvToListOfArrays("src/test/resources/input/2018-all.csv", ","),
 						"gas",
 						false
 				)
@@ -189,7 +189,7 @@ public class MainTester {
 		// investment
 		System.out.println("Investment expenses: \t" +
 				categoryCalculator(
-						csvToListOfArrays("src/test/resources/input/2018-all.csv", "--"),
+						csvToListOfArrays("src/test/resources/input/2018-all.csv", ","),
 						"investment",
 						false
 				)
@@ -198,7 +198,7 @@ public class MainTester {
 		// other
 		System.out.println("'Other' expenses: \t" +
 				categoryCalculator(
-						csvToListOfArrays("src/test/resources/input/2018-all.csv", "--"),
+						csvToListOfArrays("src/test/resources/input/2018-all.csv", ","),
 						"other",
 						false
 				)
@@ -207,7 +207,7 @@ public class MainTester {
 		// NOT CATEGORIZED
 		System.out.println("Uncategorized expenses: \t" +
 				categoryCalculator(
-						csvToListOfArrays("src/test/resources/input/2018-all.csv", "--"),
+						csvToListOfArrays("src/test/resources/input/2018-all.csv", ","),
 						false,
 						false
 				)
@@ -215,28 +215,28 @@ public class MainTester {
 
 		System.out.println("CATEGORIZED expenses: \t" +
 				categoryCalculator(
-						csvToListOfArrays("src/test/resources/input/2018-all.csv", "--"),
+						csvToListOfArrays("src/test/resources/input/2018-all.csv", ","),
 						false,
 						true
 				)
 		);
 
 		Set<String> categories = new HashSet<String>();
-		List<String[]> lines = csvToListOfArrays("src/test/resources/input/2018-all.csv", "--");
+		List<String[]> lines = csvToListOfArrays("src/test/resources/input/2018-all.csv", ",");
 		for (String[] each : lines)
 			categories.add(each[4]);
 		System.out.println(categories);
 
 		System.out.println("UNCATEGORIZED income: \t" +
 				categoryCalculator(
-						csvToListOfArrays("src/test/resources/input/2018-all.csv", "--"),
+						csvToListOfArrays("src/test/resources/input/2018-all.csv", ","),
 						true,
 						false
 				)
 		);
 		System.out.println("CATEGORIZED income: \t" +
 				categoryCalculator(
-						csvToListOfArrays("src/test/resources/input/2018-all.csv", "--"),
+						csvToListOfArrays("src/test/resources/input/2018-all.csv", ","),
 						true,
 						true
 				)
@@ -244,7 +244,7 @@ public class MainTester {
 
 
 		CsvWriter.writeToCsv(
-				csvToListOfArrays("src/test/resources/input/2018-all.csv", "--"),
+				csvToListOfArrays("src/test/resources/input/2018-all.csv", ","),
 				"src/test/resources/output",
 				"2018-all"
 		);
